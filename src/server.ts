@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("API rodando 🚀");
+  res.send("API rodando ");
 });
 
 app.get("/test-db", async (req, res) =>{
@@ -25,9 +25,28 @@ app.get("/test-db", async (req, res) =>{
 
 app.get("/private", authMiddleware, (req: any, res) => {
   res.json({
-    message: "Acesso autorizado 🚀",
+    message: "Acesso autorizado ",
     user: req.user,
   });
+});
+
+app.post("/webhooks", authMiddleware, async (req: any, res) => {
+  const { description } = req.body;
+
+  try {
+    const webhook = await db.collection("webhooks").add({
+      userId: req.user.uid,
+      description,
+      createdAt: new Date(),
+    });
+
+    res.json({
+      id: webhook.id,
+      message: "Webhook criado ",
+    });
+  } catch (err) {
+    res.status(500).send("Erro ao criar webhook");
+  }
 });
 
 app.listen(3000, () => {
