@@ -92,6 +92,28 @@ app.post("/events/:webhookId", async (req, res) => {
   }
 });
 
+app.get("/events/:webhookId", authMiddleware, async (req, res) => {
+  try {
+    const snapshot = await db
+      .collection("events")
+      .where("webhookId", "==", req.params.webhookId)
+      .get();
+
+    const events = snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+
+    res.json(events);
+  } catch (err: any) {
+    console.error(err);
+    res.status(500).json({
+      error: "Erro ao buscar eventos",
+      details: err.message,
+    });
+  }
+});
+
 app.listen(3000, () => {
   console.log("Server running on port 3000");
 });
