@@ -49,6 +49,28 @@ app.post("/webhooks", authMiddleware, async (req: any, res) => {
   }
 });
 
+app.get("/webhooks", authMiddleware, async (req: any, res) => {
+  try {
+    const snapshot = await db
+      .collection("webhooks")
+      .where("userId", "==", req.user.uid)
+      .get();
+
+    const webhooks = snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+
+    res.json(webhooks);
+  } catch (err: any) {
+    console.error(err);
+    res.status(500).json({
+      error: "Erro ao buscar webhooks",
+      details: err.message,
+    });
+  }
+});
+
 app.listen(3000, () => {
   console.log("Server running on port 3000");
 });
