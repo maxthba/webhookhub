@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import {db} from "./config/firebase";
+import { authMiddleware } from "./middlewares/authMiddleware";
 
 const app = express();
 
@@ -19,6 +20,13 @@ app.get("/test-db", async (req, res) =>{
 
   res.json({
     id: test.id
+  });
+});
+
+app.get("/private", authMiddleware, (req: any, res) => {
+  res.json({
+    message: "Acesso autorizado 🚀",
+    user: req.user,
   });
 });
 
