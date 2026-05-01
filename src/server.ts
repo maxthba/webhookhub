@@ -71,6 +71,27 @@ app.get("/webhooks", authMiddleware, async (req: any, res) => {
   }
 });
 
+app.post("/events/:webhookId", async (req, res) => {
+  const { webhookId } = req.params;
+  const payload = req.body;
+
+  try {
+    await db.collection("events").add({
+      webhookId,
+      payload,
+      createdAt: new Date(),
+    });
+
+    res.send("Evento recebido");
+  } catch (err: any) {
+    console.error(err);
+    res.status(500).json({
+      error: "Erro ao receber evento",
+      details: err.message,
+    });
+  }
+});
+
 app.listen(3000, () => {
   console.log("Server running on port 3000");
 });
