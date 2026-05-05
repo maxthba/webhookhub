@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0062B1 0%, #9046CF 100%);;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    background-color: rgb(255, 255, 255);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 2);
+    width: 100%;
+    max-width: 400px;
+}
+
+#logo {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 0;
+}
+
+.login-card h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #0062B1;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.login-form label span {
+    font-weight: bold;
+    color: #0062B1;
+    font-size: 14px;
+}
+
+.login-form input {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
+}
+
+.login-form button {
+    padding: 12px;
+    background:
+        linear-gradient(white, white) padding-box,
+        linear-gradient(135deg, #0062B1 0%, #9046CF 100%) border-box;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-clip: padding-box, border-box;
+    -webkit-background-clip: padding-box, border-box;
+    color: #0062B1;
+    transition: all 0.4s ease;
+}
+
+.login-form button:hover {
+    background: linear-gradient(135deg, #0062B1 0%, #9046CF 100%);
+    border: 2px transparent transparent;
+    color: white;
+    background-clip: unset;
+    -webkit-background-clip: unset;
+    transform: scale(1.05);
+}
+
+#login-menssage {
+    text-align: center;
+    font-size: 14px;
+    color: #d32f2f;
+}
