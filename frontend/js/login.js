@@ -34,9 +34,8 @@ form.addEventListener("submit", async (event) => {
             const data = await response.json();
             console.log("Resposta do Backend:", data);
             alert("Login e autenticação no backend com sucesso!");
-            
-            // Aqui você pode redirecionar o usuário para a página principal (Dashboard)
-            // window.location.href = "/dashboard.html";
+            localStorage.setItem("authToken", token); // Salva token em localstorage
+            window.location.href = "../pages/dashboard.html";
         } else {
             console.error("Erro na autorização do backend:", await response.text());
         }
