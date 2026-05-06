@@ -1,12 +1,26 @@
 <!DOCTYPE html>
-<html lang="Pt-BR">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <title>WebhookHub | dashboard</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <title>WebhookHub | Dashboard</title>
 </head>
 <body>
-    <p>dashboard</p>
+  <header>
+    <h1>Meus Webhooks</h1>
+    <div>
+      <button id="btn-logout">Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="loading">Carregando...</div>
+    <div id="content">
+      <div class="cards" id="cards"></div>
+    </div>
+  </main>
+
+  <script type="module" src="../js/dashboard.js"></script>
 </body>
 </html>
