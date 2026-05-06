@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Webhook — Detalhes</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;padding:16px}
+    pre{background:#f7f7f8;padding:12px;border-radius:6px}
+  </style>
+</head>
+<body>
+  <h1>Detalhes do Webhook</h1>
+  <p id="info">Carregando...</p>
+
+  <script>
+    function getParam(name){
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+
+    const id = getParam('id');
+    if(!id){
+      document.getElementById('info').textContent = 'ID do webhook não especificado.';
+    } else {
+      document.getElementById('info').innerHTML = `ID: <strong>${id}</strong>\n\nPágina de detalhes a ser implementada.`;
+    }
+  </script>
+</body>
+</html>

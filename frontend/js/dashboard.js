@@ -55,7 +55,7 @@ async function init() {
     webhooks.forEach((w) => {
       const a = document.createElement("a");
       a.className = "webhook-card";
-      a.href = `/pages/webhook.html?id=${encodeURIComponent(w.id)}`;
+      a.href = `../pages/webhook.html?id=${encodeURIComponent(w.id)}`;
       a.innerHTML = `
         <h3>${w.description ? escapeHtml(w.description) : escapeHtml(w.id)}</h3>
         <p>ID: ${escapeHtml(w.id)}</p>
