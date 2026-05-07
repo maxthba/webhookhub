@@ -10,6 +10,7 @@ form.addEventListener("submit", async (event) => {
 
     const email = document.getElementById("email").value;
     const senha = document.getElementById("senha").value;
+    const messageEl = document.getElementById("login-menssage");
 
     try {
         // 1. Faz o login no Firebase
@@ -33,15 +34,31 @@ form.addEventListener("submit", async (event) => {
         if (response.ok) {
             const data = await response.json();
             console.log("Resposta do Backend:", data);
-            alert("Login e autenticação no backend com sucesso!");
             localStorage.setItem("authToken", token); // Salva token em localstorage
-            window.location.href = "../pages/dashboard.html";
+            if (messageEl) {
+                messageEl.textContent = "Login efetuado com sucesso! Redirecionando...";
+                messageEl.classList.remove("error");
+                messageEl.classList.add("success");
+            }
+            // Pequena espera para que o usuário veja a mensagem antes do redirecionamento
+            setTimeout(() => window.location.href = "../pages/dashboard.html", 700);
         } else {
-            console.error("Erro na autorização do backend:", await response.text());
+            const text = await response.text();
+            console.error("Erro na autorização do backend:", text);
+            if (messageEl) {
+                messageEl.textContent = `Erro na autorização: ${text}`;
+                messageEl.classList.remove("success");
+                messageEl.classList.add("error");
+            }
         }
 
     } catch (error) {
         console.error("Erro ao fazer login:", error.code, error.message);
-        alert("Falha no login. Verifique seu e-mail e senha.");
+        if (messageEl) {
+            const msg = error && error.message ? error.message : 'Erro ao fazer login';
+            messageEl.textContent = msg;
+            messageEl.classList.remove("success");
+            messageEl.classList.add("error");
+        }
     }
 });

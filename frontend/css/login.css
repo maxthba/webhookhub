@@ -102,5 +102,13 @@ body {
 #login-menssage {
     text-align: center;
     font-size: 14px;
-    color: #d32f2f;
+}
+
+/* Estados de feedback de login */
+#login-menssage.error {
+    color: #c62828; /* vermelho */
+}
+
+#login-menssage.success {
+    color: #2e7d32; /* verde */
 }
