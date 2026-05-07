@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     min-height: 100vh;
+    padding: 24px 16px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,6 +17,16 @@ body {
     border-radius: 12px;
     padding: 28px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 2);
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 12px;
+    }
+
+    .panel {
+        padding: 20px;
+    }
 }
 
 header {
@@ -105,4 +116,169 @@ th,td {
     background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
     color: white;
     transform: scale(1.04);
+}
+
+.fab {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0062B1 0%, #9046CF 100%);
+    color: #fff;
+    font-size: 36px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 12px 24px rgba(2, 6, 23, 0.22);
+    z-index: 20;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fab:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 16px 30px rgba(2, 6, 23, 0.26);
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(2, 6, 23, 0.45);
+    z-index: 30;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-card {
+    width: min(100%, 420px);
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 20px 50px rgba(2, 6, 23, 0.28);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #0f172a;
+}
+
+.icon-button {
+    border: none;
+    background: transparent;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    color: #64748b;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.modal-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.modal-form label span {
+    font-weight: bold;
+    color: #0062B1;
+    font-size: 14px;
+}
+
+.modal-form input {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.modal-form input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.35);
+}
+
+.modal-message {
+    margin: 0;
+    min-height: 20px;
+    font-size: 14px;
+}
+
+.modal-message.error {
+    color: #c62828;
+}
+
+.modal-message.success {
+    color: #2e7d32;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.secondary-button,
+.primary-button {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.secondary-button {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+.primary-button {
+    background:
+        linear-gradient(white, white) padding-box,
+        linear-gradient(135deg, #0062B1 0%, #9046CF 100%) border-box;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-clip: padding-box, border-box;
+    -webkit-background-clip: padding-box, border-box;
+    color: #0062B1;
+    transition: all 0.4s ease;
+}
+
+.secondary-button:hover,
+.primary-button:hover {
+    transform: translateY(-1px);
+}
+
+.primary-button:hover {
+    background: linear-gradient(135deg, #0062B1 0%, #9046CF 100%);
+    border: 2px transparent transparent;
+    color: white;
+    background-clip: unset;
+    -webkit-background-clip: unset;
+    transform: scale(1.05);
 }

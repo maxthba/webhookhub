@@ -23,6 +23,31 @@
     </main>
   </div>
 
+  <button id="btn-create-webhook" class="fab" type="button" aria-label="Criar webhook">+</button>
+
+  <div id="create-webhook-modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="create-webhook-title">
+      <div class="modal-header">
+        <h2 id="create-webhook-title">Criar webhook</h2>
+        <button id="btn-close-modal" class="icon-button" type="button" aria-label="Fechar">×</button>
+      </div>
+
+      <form id="create-webhook-form" class="modal-form">
+        <label for="webhook-name">
+          <span>Nome do webhook</span>
+          <input id="webhook-name" name="webhook-name" type="text" placeholder="Ex.: Pedidos da loja" maxlength="80" required />
+        </label>
+
+        <p id="create-webhook-message" class="modal-message"></p>
+
+        <div class="modal-actions">
+          <button id="btn-cancel-create" class="secondary-button" type="button">Cancelar</button>
+          <button id="btn-submit-create" class="primary-button" type="submit">Criar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script type="module" src="../js/dashboard.js"></script>
 </body>
 </html>
