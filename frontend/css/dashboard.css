@@ -2,24 +2,33 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     min-height: 100vh;
-    padding: 24px 16px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0062B1 0%, #9046CF 100%);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Painel central com fundo branco */
+.panel {
+    width: min(100%, 1000px);
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 2);
 }
 
 header {
-    width: min(100%, 1000px);
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 16px;
     flex-wrap: wrap;
 }
 
 main {
-    width: min(100%, 1000px);
+    width: 100%;
 }
 table { 
     width:100%; 
@@ -74,4 +83,26 @@ th,td {
     display: block;
     margin-top: 8px;
     color: #888;
+}
+
+#btn-logout {
+    padding: 12px;
+    background:
+        linear-gradient(white, white) padding-box,
+        linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%) border-box;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    background-clip: padding-box, border-box;
+    -webkit-background-clip: padding-box, border-box;
+    color: #b00020;
+    transition: all 0.35s ease;
+}
+
+#btn-logout:hover {
+    background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+    color: white;
+    transform: scale(1.04);
 }
